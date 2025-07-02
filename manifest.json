@@ -17,18 +17,24 @@
       "id": "arabic-movies",
       "name": "Arabic Movies",
       "extra": [
-        { "name": "search", "isRequired": false }
+        {
+          "name": "search",
+          "isRequired": false
+        }
       ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog?type=movie&id=arabic-movies"
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
     },
     {
       "type": "series",
       "id": "arabic-series",
       "name": "Arabic Series",
       "extra": [
-        { "name": "search", "isRequired": false }
+        {
+          "name": "search",
+          "isRequired": false
+        }
       ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog?type=series&id=arabic-series"
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
     }
   ],
   "idPrefixes": [
