@@ -19,7 +19,7 @@
       "extra": [
         { "name": "search", "isRequired": false }
       ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog?type=movie&id=arabic-movies"
     },
     {
       "type": "series",
@@ -28,7 +28,7 @@
       "extra": [
         { "name": "search", "isRequired": false }
       ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog?type=series&id=arabic-series"
     }
   ],
   "idPrefixes": [ "tt" ],
