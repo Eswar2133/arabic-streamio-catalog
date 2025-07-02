@@ -1,52 +1,38 @@
-export default function handler(req, res) {
-  const { type, search } = req.query;
-
-  const catalog = {
-    movie: [
-      {
-        id: "tt0001001",
-        name: "الفيل الأزرق",
-        type: "movie",
-        poster: "https://via.placeholder.com/300x450?text=الفيل+الأزرق"
-      },
-      {
-        id: "tt0001002",
-        name: "الممر",
-        type: "movie",
-        poster: "https://via.placeholder.com/300x450?text=الممر"
-      },
-      {
-        id: "tt0001003",
-        name: "صعيدي في الجامعة الأمريكية",
-        type: "movie",
-        poster: "https://via.placeholder.com/300x450?text=صعيدي+في+الجامعة+الأمريكية"
-      }
-    ],
-    series: [
-      {
-        id: "tt0002001",
-        name: "الاختيار",
-        type: "series",
-        poster: "https://via.placeholder.com/300x450?text=الاختيار"
-      }
-    ]
-  };
-
-  if (!type || !catalog[type]) {
-    return res.status(400).send("Invalid type");
+{
+  "id": "org.arabic.catalog",
+  "version": "1.0.0",
+  "name": "Arabic Catalog",
+  "description": "Arabic Movies and Series for Stremio",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+  "resources": [
+    "catalog"
+  ],
+  "types": [
+    "movie",
+    "series"
+  ],
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "arabic-movies",
+      "name": "Arabic Movies",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ],
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
+    },
+    {
+      "type": "series",
+      "id": "arabic-series",
+      "name": "Arabic Series",
+      "extra": [
+        { "name": "search", "isRequired": false }
+      ],
+      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
+    }
+  ],
+  "idPrefixes": [ "tt" ],
+  "behaviorHints": {
+    "configurationRequired": false
   }
-
-  let results = catalog[type];
-
-  if (search) {
-    const searchLower = search.toLowerCase().replace(/\s/g, "");
-    results = results.filter(item => {
-      const itemName = item.name.toLowerCase().replace(/\s/g, "");
-      // Debug log for development, remove in production
-      console.log("Comparing:", itemName, "with", searchLower);
-      return itemName.includes(searchLower);
-    });
-  }
-
-  return res.status(200).json({ metas: results });
 }
