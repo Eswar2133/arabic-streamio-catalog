@@ -1,0 +1,26 @@
+{
+  "id": "org.arabic.catalog",
+  "version": "1.0.0",
+  "name": "Arabic Catalogue",
+  "description": "Latest Arabic Movies, Series and Islamic Shows",
+  "resources": ["catalog"],
+  "types": ["movie", "series"],
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "arabic_movies",
+      "name": "Arabic Movies",
+      "extra": [{ "name": "search" }]
+    },
+    {
+      "type": "series",
+      "id": "arabic_series",
+      "name": "Arabic Series",
+      "extra": [{ "name": "search" }]
+    }
+  ],
+  "idPrefixes": ["tt"],
+  "behaviorHints": {
+    "configurationRequired": false
+  }
+} 
