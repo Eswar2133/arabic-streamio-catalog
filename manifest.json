@@ -1,34 +1,20 @@
-{
-  "id": "org.stremio.arabic-addon",
-  "version": "1.0.0",
-  "name": "Arabic Stremio Addon",
-  "description": "A catalogue of Arabic movies and series",
-  "resources": ["catalog", "meta", "stream"],
-  "types": ["movie", "series"],
-  "catalogs": [
-    {
-      "type": "movie",
-      "id": "arabic_movies",
-      "name": "Arabic Movies",
-      "extra": [
-        { "name": "search", "isRequired": false },
-        { "name": "genre", "isRequired": false }
-      ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
-    },
-    {
-      "type": "series",
-      "id": "arabic_series",
-      "name": "Arabic Series",
-      "extra": [
-        { "name": "search", "isRequired": false },
-        { "name": "genre", "isRequired": false }
-      ],
-      "url": "https://arabic-streamio-addon-pssa.vercel.app/api/catalog"
-    }
-  ],
-  "metaUrl": "https://arabic-streamio-addon-pssa.vercel.app/api/meta",
-  "streamUrl": "https://arabic-streamio-addon-pssa.vercel.app/api/stream",
-  "contactEmail": "your@email.com",
-  "logo": "https://via.placeholder.com/200x200.png?text=Arabic+Addon"
-}
+"catalogs": [
+  {
+    "type": "movie",
+    "id": "arabic_movies",
+    "name": "Arabic Movies",
+    "extra": [
+      { "name": "search", "isRequired": false },
+      { "name": "genre", "isRequired": false }
+    ]
+  },
+  {
+    "type": "series",
+    "id": "arabic_series",
+    "name": "Arabic Series",
+    "extra": [
+      { "name": "search", "isRequired": false },
+      { "name": "genre", "isRequired": false }
+    ]
+  }
+]
