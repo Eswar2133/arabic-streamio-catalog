@@ -1,21 +1,48 @@
-"catalogs": [
-  {
-    "type": "movie",
-    "id": "arabic_movies",
-    "name": "Arabic Movies",
-    "extra": [
-      { "name": "search", "isRequired": false },
-      { "name": "genre", "isRequired": false }
-    ]
-  },
-  {
-    "type": "series",
-    "id": "arabic_series",
-    "name": "Arabic Series",
-    "extra": [
-      { "name": "search", "isRequired": false },
-      { "name": "genre", "isRequired": false }
-    ]
-  }
-]
+export default function handler(req, res) {
+  const { type, search } = req.query;
 
+  const catalog = {
+    movie: [
+      {
+        id: "tt0001001",
+        name: "الفيل الأزرق",
+        type: "movie",
+        poster: "https://via.placeholder.com/300x450?text=الفيل+الأزرق"
+      },
+      {
+        id: "tt0001002",
+        name: "الممر",
+        type: "movie",
+        poster: "https://via.placeholder.com/300x450?text=الممر"
+      },
+      {
+        id: "tt0001003",
+        name: "صعيدي في الجامعة الأمريكية",
+        type: "movie",
+        poster: "https://via.placeholder.com/300x450?text=صعيدي+في+الجامعة+الأمريكية"
+      }
+    ],
+    series: [
+      {
+        id: "tt0002001",
+        name: "الاختيار",
+        type: "series",
+        poster: "https://via.placeholder.com/300x450?text=الاختيار"
+      }
+    ]
+  };
+
+  if (!type || !catalog[type]) {
+    return res.status(400).send("Invalid type");
+  }
+
+  let results = catalog[type];
+  if (search) {
+    const searchLower = search.toLowerCase();
+    results = results.filter(item =>
+      item.name.toLowerCase().includes(searchLower)
+    );
+  }
+
+  return res.status(200).json({ metas: results });
+}
